@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Minh Khánh - Software Engineering Student</title>
+    <meta name="description" content="Software Engineering student at PTIT in Ho Chi Minh City, building solid foundations in OOP, Data Structures & Algorithms, and modern web development.">
+    <meta property="og:title" content="Nguyễn Minh Khánh - Software Engineering Student">
+    <meta property="og:description" content="Software Engineering student at PTIT in Ho Chi Minh City, building solid foundations in OOP, Data Structures & Algorithms, and modern web development.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.pinimg.com/1200x/e7/70/51/e77051136cf95616fcb83bbd3f338c93.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nguyễn Minh Khánh - Software Engineering Student">
+    <meta name="twitter:description" content="Software Engineering student at PTIT in Ho Chi Minh City, building solid foundations in OOP, Data Structures & Algorithms, and modern web development.">
+    <meta name="twitter:image" content="https://i.pinimg.com/1200x/e7/70/51/e77051136cf95616fcb83bbd3f338c93.jpg">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2D3748 0%, #4A5568 50%, #718096 100%);
+        }
+        
+        .japanese-accent {
+            background: linear-gradient(135deg, #E53E3E 0%, #C53030 100%);
+        }
+        
+        .zen-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .typing-animation::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: #E53E3E;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .nav-link.active {
+            color: #E53E3E !important;
+            font-weight: 600;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nguyễn Minh Khánh",
+        "jobTitle": "Software Engineering Student",
+        "description": "Software Engineering student at PTIT in Ho Chi Minh City, building solid foundations in OOP, Data Structures & Algorithms, and modern web development.",
+        "email": "minhkhanh2005py@gmail.com",
+        "telephone": "+84382772237",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dĩ An",
+            "addressRegion": "Hồ Chí Minh",
+            "addressCountry": "VN"
+        },
+        "sameAs": [
+            "https://github.com/minhkhanh-ptiter",
+            "https://www.linkedin.com/in/kh%C3%A1nh-nguy%E1%BB%85n-minh-488a0b324/",
+            "https://web.facebook.com/nguyen.khanh.741879",
+            "https://x.com/KhnhNgu08146928"
+        ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <a href="#main" class="skip-link">Skip to content</a>
+    
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Portfolio</h1>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#about" class="nav-link hover:text-red-300 transition-colors">Giới thiệu</a></li>
+                    <li><a href="#skills" class="nav-link hover:text-red-300 transition-colors">Kỹ năng</a></li>
+                    <li><a href="#projects" class="nav-link hover:text-red-300 transition-colors">Dự án</a></li>
+                    <li><a href="#contact" class="nav-link hover:text-red-300 transition-colors">Liên hệ</a></li>
+                </ul>
+                <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#about" class="block py-2 hover:text-red-300">Giới thiệu</a>
+                <a href="#skills" class="block py-2 hover:text-red-300">Kỹ năng</a>
+                <a href="#projects" class="block py-2 hover:text-red-300">Dự án</a>
+                <a href="#contact" class="block py-2 hover:text-red-300">Liên hệ</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="gradient-bg text-white py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl zen-shadow">
+                    <img src="https://i.pinimg.com/1200x/e7/70/51/e77051136cf95616fcb83bbd3f338c93.jpg" 
+                         alt="Nguyễn Minh Khánh - Software Engineering Student" 
+                         class="w-full h-full object-cover"
+                         width="160" height="160"
+                         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                </div>
+                <h1 class="text-5xl font-bold mb-2">Nguyễn Minh Khánh</h1>
+                <p class="text-lg mb-4 text-gray-300">This is a demo</p>
+                <p class="text-xl mb-8 typing-animation" id="typing-text">Software Engineering Student</p>
+                <p class="text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Software Engineering student at PTIT in Ho Chi Minh City, building solid foundations in OOP, Data Structures & Algorithms, and modern web development.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                        Liên hệ với tôi
+                    </a>
+                    <a href="assets/cv/NguyenMinhKhanh_CV.pdf"
+                        target="_blank" rel="noopener"
+                        class="japanese-accent text-white px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg">
+                        Tải CV (PDF)
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Giới thiệu về tôi</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Câu chuyện của tôi</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Tôi là sinh viên Kỹ thuật Phần mềm tại PTIT TP.HCM với niềm đam mê tạo ra những giải pháp công nghệ hiệu quả. 
+                                Hiện tại, tôi đang xây dựng nền tảng vững chắc về Lập trình Hướng đối tượng, Cấu trúc Dữ liệu & Giải thuật.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                Tôi luôn tìm kiếm những thách thức mới và cơ hội để học hỏi các công nghệ tiên tiến trong phát triển web hiện đại. 
+                                Mục tiêu của tôi là trở thành một Software Engineer toàn diện.
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-lg zen-shadow">
+                            <h4 class="text-xl font-semibold mb-4 text-gray-800">Thông tin cá nhân</h4>
+                            <ul class="space-y-3 text-gray-600">
+                                <li><strong>Trường:</strong> PTIT TP.HCM</li>
+                                <li><strong>Chuyên ngành:</strong> Kỹ thuật Phần mềm</li>
+                                <li><strong>Địa chỉ:</strong> Dĩ An, Hồ Chí Minh</li>
+                                <li><strong>Email:</strong> minhkhanh2005py@gmail.com</li>
+                                <li><strong>Điện thoại:</strong> 0382772237</li>
+                                <li><strong>Ngôn ngữ:</strong> Tiếng Việt, English, 日本語, 한국어</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Kỹ năng của tôi</h2>
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                        <!-- Core Stack -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg card-hover">
+                            <h3 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                                <span class="w-3 h-3 japanese-accent rounded-full mr-3"></span>
+                                Core Stack
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">React</span>
+                                <span class="skill-badge bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">Java</span>
+                                <span class="skill-badge bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Spring Boot</span>
+                                <span class="skill-badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">MySQL</span>
+                            </div>
+                        </div>
+
+                        <!-- Also Use -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg card-hover">
+                            <h3 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                                <span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span>
+                                Also Use
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">HTML/CSS/JS</span>
+                                <span class="skill-badge bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm font-medium">Tailwind</span>
+                                <span class="skill-badge bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">Git</span>
+                                <span class="skill-badge bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">REST</span>
+                            </div>
+                        </div>
+
+                        <!-- Learning -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg card-hover">
+                            <h3 class="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+                                <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                                Learning
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Django</span>
+                                <span class="skill-badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Docker</span>
+                                <span class="skill-badge bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">Cloud (AWS/GCP)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Ngôn ngữ</h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-2xl">🇺🇸</span>
+                                </div>
+                                <h4 class="font-semibold text-gray-800">English</h4>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Upper intermediate</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+                                    <span class="text-2xl">🇯🇵</span>
+                                </div>
+                                <h4 class="font-semibold text-gray-800">Japanese</h4>
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
+                                    <span class="text-2xl">🇰🇷</span>
+                                </div>
+                                <h4 class="font-semibold text-gray-800">Korean</h4>
+                                <div class="flex flex-col items-center gap-1">
+                                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Dự án nổi bật</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- D-cine Cinema -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <img src="assets/images/projects/d-cine.png"
+                            alt="D-cine Cinema Management & Booking – thumbnail"
+                            class="h-48 w-full object-cover" loading="lazy" width="1200" height="630">
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">D-cine Cinema Management & Booking</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Quản lý phim, phòng chiếu, lịch chiếu, giá vé và đặt vé theo sơ đồ ghế; hướng tới tích hợp quét QR và hoàn/đổi vé theo quy định.</p>
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Java</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">MySQL</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">ERD</span>
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">UML</span>
+                                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">Agile/Scrum</span>
+                            </div>
+                                <a href="https://github.com/minhkhanh-ptiter/DCineProject" target="_blank" rel="noopener"
+                                    class="text-red-600 hover:text-red-800 font-semibold">Xem chi tiết →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel Booking -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <img src="assets/images/projects/hotel-booking.png"
+                            alt="Hotel Booking System – thumbnail"
+                            class="h-48 w-full object-cover" loading="lazy" width="1200" height="630">
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Hotel Booking System</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Thiết kế cơ sở dữ liệu & luồng nghiệp vụ đặt phòng; xây dựng các sơ đồ Use Case/Sequence/ERD và prototype quản trị đặt phòng, thanh toán, hoàn tiền.</p>
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Java</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">MySQL</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">dbdiagram.io</span>
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">PlantUML</span>
+                                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">UML</span>
+                            </div>
+                                <a href="https://github.com/minhkhanh-ptiter/NMCNPM/tree/main/Lab_2" target="_blank" rel="noopener"
+                                    class="text-red-600 hover:text-red-800 font-semibold">Xem chi tiết →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Login Form UI -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <img src="assets/images/projects/login-form.png"
+                            alt="Login Form UI + Selenium E2E – thumbnail"
+                            class="h-48 w-full object-cover" loading="lazy" width="1200" height="630">
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Login Form UI + Selenium E2E Tests</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Form đăng nhập (Username/Password, Forgot password, Sign up, Social login) kèm bộ test tự động: đăng nhập thành công/thất bại, kiểm tra hiển thị, điều hướng link.</p>
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">HTML/CSS/JS</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Selenium 4</span>
+                                <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Maven</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">JUnit</span>
+                                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">ChromeDriver</span>
+                            </div>
+                                <a href="https://github.com/minhkhanh-ptiter/NMCNPM/tree/main/Lab_3" target="_blank" rel="noopener"
+                                    class="text-red-600 hover:text-red-800 font-semibold">Xem chi tiết →</a>
+                        </div>
+                    </div>
+
+                    <!-- Student Manager -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <img src="assets/images/projects/student-manager.png"
+                            alt="Student Manager C++ – thumbnail"
+                            class="h-48 w-full object-cover" loading="lazy" width="1200" height="630">
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Student Manager (C++ Console)</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Ứng dụng quản lý sinh viên dùng singly linked list, hỗ trợ tìm kiếm tuyến tính/nhị phân, so khớp không phân biệt hoa thường/dấu và hiển thị tiếng Việt bằng ICU.</p>
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">C++</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Data Structures</span>
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Linked List</span>
+                                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">ICU</span>
+                                <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Algorithms</span>
+                            </div>
+                                <a href="https://github.com/minhkhanh-ptiter/StudentManager" target="_blank" rel="noopener"
+                                    class="text-red-600 hover:text-red-800 font-semibold">Xem chi tiết →</a>
+
+                        </div>
+                    </div>
+
+                    <!-- Algorithms & Collections -->
+                    <!-- <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <img src="assets/images/projects/java-practice-pack.png"
+                            alt="Algorithms & Collections (Java) – thumbnail"
+                            class="h-48 w-full object-cover" loading="lazy" width="1200" height="630">
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Algorithms & Collections (Java Practice Pack)</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Bộ bài tập Java: QuickSort, Binary Search, TreeMap/Set/Iterator, Generic & Comparator; tập trung vào hiệu năng, tính đúng đắn và clean code.</p>
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Java</span>
+                                <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Algorithms</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Collections</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Generics</span>
+                            </div>
+                            <button class="text-red-600 hover:text-red-800 font-semibold">Xem chi tiết →</button>
+                        </div>
+                    </div> -->
+
+                    <!-- Personal Portfolio -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <img src="assets/images/projects/portfolio.png"
+                            alt="Personal Portfolio – thumbnail"
+                            class="h-48 w-full object-cover" loading="lazy" width="1200" height="630">
+
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Personal Portfolio</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Trang portfolio + README GitHub: "typing intro", badge wall, thống kê repo, tối ưu SEO/OG và accessibility; cấu trúc dự án để dễ mở rộng.</p>
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">HTML</span>
+                                <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-xs">CSS/Tailwind</span>
+                                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">Markdown</span>
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Git/GitHub</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">SEO/A11y</span>
+                            </div>
+                                <a href="https://github.com/minhkhanh-ptiter/MyPortfolio" target="_blank" rel="noopener"
+                                    class="text-red-600 hover:text-red-800 font-semibold">Xem chi tiết →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Liên hệ với tôi</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6 text-gray-800">Thông tin liên hệ</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Email</p>
+                                        <a href="mailto:minhkhanh2005py@gmail.com" class="text-red-600 hover:text-red-800">minhkhanh2005py@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Điện thoại</p>
+                                        <a href="tel:+84382772237" class="text-green-600 hover:text-green-800">0382772237</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Địa chỉ</p>
+                                        <a href="https://www.google.com/maps/place/D%C4%A9+An,+B%C3%ACnh+D%C6%B0%C6%A1ng,+Vi%E1%BB%87t+Nam/@10.9138052,106.7473766,13z/data=!3m1!4b1!4m6!3m5!1s0x3174d91eb88b3a0d:0xc29bee41fcab904c!8m2!3d10.8964757!4d106.7527418!16s%2Fm%2F03c314z?hl=vi&entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D" class="text-blue-600">Dĩ An, Hồ Chí Minh</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-lg">
+                            <h3 class="text-2xl font-semibold mb-6 text-gray-800">Gửi tin nhắn</h3>
+                            <form action="https://formspree.io/f/xpwygvkr" method="POST" id="contact-form" class="space-y-4" novalidate>
+                            <!-- cấu hình Formspree -->
+                            <input type="hidden" name="_subject" value="New contact from portfolio">
+                            <input type="hidden" name="_template" value="table">
+                            <!-- Tùy chọn: chuyển tới trang cảm ơn riêng của bạn -->
+                            <!-- <input type="hidden" name="_next" value="https://your-domain/thanks.html"> -->
+
+                            <!-- honeypot chống bot -->
+                            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Họ và tên</label>
+                                <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <!-- giữ name="email" đúng yêu cầu Formspree -->
+                                <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Tin nhắn</label>
+                                <textarea id="message" name="message" rows="4" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full japanese-accent text-white py-3 px-6 rounded-lg hover:opacity-90 transition-opacity font-semibold disabled:opacity-60 disabled:cursor-not-allowed">
+                                <span class="submit-text">Gửi tin nhắn</span>
+                                <span class="loading-text hidden">Đang gửi...</span>
+                            </button>
+                            </form>
+
+                            <!-- message area -->
+                            <div id="form-message" class="mt-4 p-4 rounded-lg hidden" role="status" aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/minhkhanh-ptiter" class="hover:text-red-300 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/kh%C3%A1nh-nguy%E1%BB%85n-minh-488a0b324/" class="hover:text-red-300 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://web.facebook.com/nguyen.khanh.741879" class="hover:text-red-300 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/KhnhNgu08146928" class="hover:text-red-300 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+            </div>
+            <p>&copy; 2025 Nguyễn Minh Khánh</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top japanese-accent text-white p-3 rounded-full shadow-lg hover:opacity-90 transition-all" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const texts = ['Software Engineering Student', 'Java Developer', 'Web Development Enthusiast', 'Problem Solver'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            setTimeout(typeWriter, isDeleting ? 50 : 100);
+        }
+
+        typeWriter();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Active section highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightActiveSection() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        function toggleBackToTop() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact form handling with Formspree (robust)
+  const contactForm = document.getElementById('contact-form');
+  const formMessage = document.getElementById('form-message');
+  const submitBtn   = contactForm.querySelector('button[type="submit"]');
+  const submitText  = contactForm.querySelector('.submit-text');
+  const loadingText = contactForm.querySelector('.loading-text');
+
+  function showMsg(type, text) {
+    formMessage.classList.remove('hidden');
+    formMessage.textContent = text;
+    formMessage.className = 'mt-4 p-4 rounded-lg ' +
+      (type === 'ok' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700');
+  }
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // UI: loading
+    submitBtn.disabled = true;
+    submitText.classList.add('hidden');
+    loadingText.classList.remove('hidden');
+    formMessage.classList.add('hidden');
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' } // yêu cầu JSON nếu được
+      });
+
+      // Formspree trả 200/201 (JSON) hoặc 302/303 redirect -> fetch sẽ theo redirect và vẫn ok
+      if (res.ok) {
+        // cố gắng đọc JSON; nếu không có cũng coi là thành công
+        let ok = true;
+        try {
+          const data = await res.json();
+          ok = !data?.errors;
+        } catch (_) { /* không phải JSON -> vẫn coi là ok */ }
+
+        if (ok) {
+          showMsg('ok', 'Cảm ơn bạn! Tin nhắn đã được gửi thành công. Mình sẽ phản hồi sớm nhất có thể.');
+          contactForm.reset();
+        } else {
+          showMsg('err', 'Có lỗi xảy ra khi gửi tin nhắn. Vui lòng kiểm tra lại thông tin và thử lại.');
+        }
+      } else {
+        // cố đọc lỗi chi tiết từ Formspree
+        let errText = 'Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau.';
+        try {
+          const data = await res.json();
+          if (data?.errors && data.errors.length) {
+            errText = data.errors.map(e => e.message).join('; ');
+          }
+        } catch (_) {}
+        showMsg('err', errText);
+      }
+    } catch (err) {
+      showMsg('err', 'Mất kết nối hoặc bị chặn (CORS). Hãy thử lại hoặc kiểm tra mạng/host.');
+    } finally {
+      // UI: reset button
+      submitBtn.disabled = false;
+      submitText.classList.remove('hidden');
+      loadingText.classList.add('hidden');
+
+      // Ẩn thông báo sau 6 giây
+      setTimeout(() => {
+        formMessage.classList.add('hidden');
+      }, 6000);
+    }
+  });
+
+        // Scroll event listeners
+        window.addEventListener('scroll', () => {
+            highlightActiveSection();
+            toggleBackToTop();
+            
+            // Header shadow effect
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+
+        // Initialize on page load
+        highlightActiveSection();
+        toggleBackToTop();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9930e4efb58afde0',t:'MTc2MTIxODk0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
